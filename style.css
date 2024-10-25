@@ -1,0 +1,197 @@
+/* style.css */
+body {
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(135deg, #457b9d, #1d3557);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #f1faee;
+  overflow: hidden;
+}
+
+.game-container {
+  width: 90%;
+  max-width: 600px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  color: #1d3557;
+  animation: fadeIn 1s ease-out forwards;
+  transform: translateY(-20px);
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h1 {
+  font-size: 2.5em;
+  color: #1d3557;
+  margin-bottom: 15px;
+  background: linear-gradient(90deg, #457b9d, #e63946);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: colorShift 3s infinite;
+}
+
+@keyframes colorShift {
+  0% { background-position: 0%; }
+  100% { background-position: 100%; }
+}
+
+#section-prompt,
+#question-prompt {
+  font-size: 1.2em;
+  margin: 10px 0;
+  color: #1d3557;
+}
+
+input[type="text"] {
+  padding: 12px;
+  width: 100%;
+  font-size: 1.1em;
+  border: 2px solid #457b9d;
+  border-radius: 8px;
+  margin-top: 15px;
+  margin-left: -14px; /* Moves the entire input box to the left */
+  outline: none;
+  background-color: #f1faee;
+  transition: border 0.4s, transform 0.3s;
+}
+
+input[type="text"]:focus {
+  border-color: #e63946;
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(230, 57, 70, 0.3);
+}
+
+
+button {
+  padding: 12px 24px;
+  margin-top: 15px;
+  font-size: 1em;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(135deg, #457b9d, #e63946);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.4s, transform 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+button:hover {
+  background: linear-gradient(135deg, #e63946, #457b9d);
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+#retry-button {
+  background: linear-gradient(135deg, #f4a261, #e76f51);
+  display: none;
+}
+
+#retry-button:hover {
+  background: linear-gradient(135deg, #e76f51, #f4a261);
+}
+
+#feedback {
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 1.1em;
+  color: #e63946;
+  opacity: 0;
+  animation: fadeInFeedback 0.5s forwards;
+}
+
+@keyframes fadeInFeedback {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+#correct-answers {
+  margin-top: 20px;
+  text-align: left;
+}
+
+#correct-answers ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#correct-answers li {
+  padding: 8px 10px;
+  background-color: #f1faee;
+  border: 1px solid #a8dadc;
+  border-radius: 8px;
+  margin-top: 8px;
+  color: #1d3557;
+  animation: slideIn 0.4s ease-out forwards;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+#score {
+  margin-top: 25px;
+  font-size: 1.5em;
+  color: #457b9d;
+  font-weight: bold;
+}
+
+/* CSS for George's funky bounce animation */
+#george-img {
+  position: absolute;
+  top: 50%;
+  left: -150px; /* Start off-screen to the left */
+  transform: translateY(-50%) scale(1);
+  width: 150px;
+  height: auto;
+  z-index: 10;
+  border-radius: 50%;
+}
+
+@keyframes funkyDance {
+  0% {
+    transform: translate(-100%, -50%) scale(0.5); /* Start smaller off-screen */
+    opacity: 0;
+  }
+  10% {
+    transform: translate(10%, -50%) scale(1.2);
+    opacity: 1;
+  }
+  30% {
+    transform: translate(40%, -30%) scale(1);
+  }
+  50% {
+    transform: translate(60%, -70%) scale(1.2);
+  }
+  70% {
+    transform: translate(80%, -50%) scale(1);
+  }
+  90% {
+    transform: translate(100%, -30%) scale(1.2);
+  }
+  100% {
+    transform: translate(150%, -50%) scale(0.5); /* End off-screen to the right */
+    opacity: 0;
+  }
+}
+
+.show-funky {
+  animation: funkyDance 2s ease-out forwards;
+}
